@@ -96,23 +96,23 @@ def main(args):
             # Save the model checkpoints
             if (i+1) % args.save_step == 0:
                 torch.save(img_model.state_dict(), os.path.join(
-                    args.model_path, 'CocoIapr_imgmodel-{}-{}.ckpt'.format(epoch+1, i+1)))
+                    args.model_path, 'com_imgmodel-{}-{}.ckpt'.format(epoch+1, i+1)))
                 torch.save(text_model.state_dict(), os.path.join(
-                    args.model_path, 'CocoIapr_textmodel-{}-{}.ckpt'.format(epoch+1, i+1)))
+                    args.model_path, 'com_textmodel-{}-{}.ckpt'.format(epoch+1, i+1)))
     
     torch.save(img_model.state_dict(), os.path.join(
-                    args.model_path, 'CocoIapr_imgmodel-final.ckpt'.format(epoch+1, i+1)))
+                    args.model_path, 'com_imgmodel-final.ckpt'.format(epoch+1, i+1)))
     torch.save(text_model.state_dict(), os.path.join(
-                    args.model_path, 'CocoIapr_textmodel-final.ckpt'.format(epoch+1, i+1)))
+                    args.model_path, 'com_textmodel-final.ckpt'.format(epoch+1, i+1)))
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--model_path', type=str, default='models/', help='path for saving trained models')
     parser.add_argument('--crop_size', type=int, default=224 , help='size for randomly cropping images')
-    parser.add_argument('--vocab_path', type=str, default='/hpcfs/users/a1810155/Pingyi_project/CombinationTrain/Iapr_Coco/image_captioning/data/vocab.pkl', help='path for vocabulary wrapper')
-    parser.add_argument('--image_dir', type=str, default='/hpcfs/users/a1810155/Projects/datasets/CombinedSet/Iapr_Coco/image', help='directory for images')
-    parser.add_argument('--caption_path', type=str, default='/hpcfs/users/a1810155/Projects/datasets/CombinedSet/Iapr_Coco/Ann_Iapr_Coco.txt', help='path for train annotation txt file')
+    parser.add_argument('--vocab_path', type=str, default='data/com_vocab.pkl', help='path for vocabulary wrapper')
+    parser.add_argument('--image_dir', type=str, default='data/CombinedSet/image', help='directory for images')
+    parser.add_argument('--caption_path', type=str, default='data/CombinedSet/com.txt', help='path for train annotation txt file')
     parser.add_argument('--log_step', type=int , default=10, help='step size for printing log info')
     parser.add_argument('--save_step', type=int , default=470, help='step size for saving trained models')
     
@@ -121,7 +121,7 @@ if __name__ == '__main__':
     parser.add_argument('--hidden_size', type=int , default=512, help='dimension of lstm hidden states')
     parser.add_argument('--num_layers', type=int , default=1, help='number of layers in lstm')
     
-    parser.add_argument('--num_epochs', type=int, default=5)
+    parser.add_argument('--num_epochs', type=int, default=20)
     parser.add_argument('--batch_size', type=int, default=128)
     parser.add_argument('--num_workers', type=int, default=2)
     parser.add_argument('--learning_rate', type=float, default=0.001)
