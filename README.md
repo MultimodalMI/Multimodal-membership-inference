@@ -22,14 +22,6 @@ These datasets can be access from following link:
 
 [2] Microsoft coco: Common objects in context. *ECCV 2014*
 
-## Perceptual model
-The training code for perceptual model is not included in this repo. The perceptual model is trained using Enet model released [here][enet], and is trained with 1,000 chart images randomly selected from the training set and labelled semi-automatically (segmented and labelled automatically and then manually examined and corrected).
-
-[enet]: https://github.com/kwotsin/TensorFlow-ENet
-
-The pretrained perceptual model can be download from following link: 
-- https://drive.google.com/drive/folders/19VOZYvAyrG7gp0aagDR7XGryss-wcD7H?usp=sharing
-
 ## Training models
 Please following the instructions in our paper to separate the datasets into member data, shadow data, member data, and combination set through random sampling. And train the target model, shadow model and MFE model through:
 `python train.py`
