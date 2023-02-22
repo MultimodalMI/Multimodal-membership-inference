@@ -12,7 +12,7 @@ Our code is implemented and tested on Pytorch with the other packages in require
 ## Dataset
 Please download Flickr8K[<sup>1</sup>](#refer-anchor) and coco2017[<sup>2</sup>](#refer-anchor) from public sources and put them under data folder. 
 
-These datasets can be access from following link:
+These datasets can be accessed from following link:
 
 - https://www.kaggle.com/datasets/adityajn105/flickr8k
 - https://www.kaggle.com/datasets/awsaf49/coco-2017-dataset
